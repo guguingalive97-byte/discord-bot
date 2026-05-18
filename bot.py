@@ -144,20 +144,20 @@ async def contrato(
             ephemeral=True
         )
 
-    except:
+    except Exception as e:
+        print(e)
 
         await interaction.response.send_message(
             "Não consegui enviar mensagem privada.",
             ephemeral=True
         )
 
-
 @bot.event
 async def on_ready():
 
     await bot.tree.sync()
 
-    print(f"Bot online como {bot.user}")
-
+print(f"Bot online como {bot.user}")
+print("Slash commands sincronizados")
 
 bot.run(TOKEN)
